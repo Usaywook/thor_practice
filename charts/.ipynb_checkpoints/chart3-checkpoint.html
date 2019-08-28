@@ -1,0 +1,62 @@
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+      
+      
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+      
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {    
+        // python replacement in the python script.
+        var jscode_data = new google.visualization.DataTable();
+jscode_data.addColumn("string", "Event", "Event");
+jscode_data.addColumn("number", "frequency", "frequency");
+jscode_data.addRows(8);
+jscode_data.setCell(0, 0, "disenagnement 발생");
+jscode_data.setCell(0, 1, 87);
+jscode_data.setCell(1, 0, "stopline에서 정차못함");
+jscode_data.setCell(1, 1, 1);
+jscode_data.setCell(2, 0, "정차된 차량을 못피함");
+jscode_data.setCell(2, 1, 42);
+jscode_data.setCell(3, 0, "신호위반");
+jscode_data.setCell(3, 1, 9);
+jscode_data.setCell(4, 0, "과속");
+jscode_data.setCell(4, 1, 20);
+jscode_data.setCell(5, 0, "차선변경 못함");
+jscode_data.setCell(5, 1, 22);
+jscode_data.setCell(6, 0, "차선유지 못함");
+jscode_data.setCell(6, 1, 73);
+jscode_data.setCell(7, 0, "도로를 횡단하는 보행자를 못피함");
+jscode_data.setCell(7, 1, 92);
+
+        
+        // Set chart options
+        var options = {title:'Monthly issue frequency table',
+                      legend: { position: 'right' }};
+        var optionsforhist = {title:'Monthly issue frequency table',
+                      legend: { position: 'right' },
+                      hAxis: { title: "Frequency" },
+                      vAxis: { title: "Number of events" }};
+                       
+        // Instantiate and draw our chart, passing in some options.
+        var pie_chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        pie_chart.draw(jscode_data, options);
+        
+        var hist_chart = new google.visualization.Histogram(document.getElementById('histchart'));
+        hist_chart.draw(jscode_data, optionsforhist);
+      }
+    </script>
+  </head>
+  <body>    
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <div id="histchart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>

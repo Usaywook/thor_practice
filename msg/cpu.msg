@@ -1,0 +1,2 @@
+float32 clock
+float32 temperature

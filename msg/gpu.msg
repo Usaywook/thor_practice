@@ -1,0 +1,10 @@
+string gpu_id
+float32 clock_graphics
+float32 clock_sm
+float32 clock_memory
+float32 clock_video
+string[] pid
+float32[] pid_vram_usage
+float32 vram_percent
+float32 temperature
+float32 fan_speed
